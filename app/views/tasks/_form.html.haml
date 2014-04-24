@@ -1,0 +1,17 @@
+= f.label :name
+= f.text_field :name
+%br
+= f.label :complete
+= f.check_box :complete
+%br
+= f.label :due_date
+= f.date_select :due_date
+%br
+= f.label :description
+= f.text_area :description
+%br
+
+= f.label "person"
+= f.select :person_id, Person.all.collect {|p| [p.name, p.id]} #===> p.name is what displays, p.id is what is returned
+%br
+= f.submit "Add"

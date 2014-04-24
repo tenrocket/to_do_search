@@ -1,0 +1,11 @@
+%h1= @person.name
+
+-if @person.available
+	This Person is Available
+-else 
+	This Person is Not Available
+
+= button_to "Delete", "/people/#{@person.id}", {:action => "delete", :method => :delete}
+%br
+
+=button_to "Edit Item", "/people/#{@person.id}/edit", {:method => :get} 

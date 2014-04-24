@@ -1,0 +1,11 @@
+%h1= @task.name
+
+-if @task.complete
+	This Task Has Been Completed.
+-else 
+	This Task Has Not Been Completed.
+
+= button_to "Delete", "/tasks/#{@task.id}", {:action => "delete", :method => :delete}
+%br
+
+=button_to "Edit Task", "/tasks/#{@task.id}/edit", {:method => :get} 

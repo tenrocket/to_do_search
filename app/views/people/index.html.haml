@@ -1,0 +1,13 @@
+%h1 List of People
+
+- @people.each do |p|
+	Name:
+	= p.name
+	%br
+	-if p.available
+		This Person is Available
+	-else 
+		This Person is Not Available
+
+	%br
+	%br

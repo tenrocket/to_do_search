@@ -1,0 +1,26 @@
+%h1 List of Tasks
+
+- @tasks.each do |t|
+	Name:
+	= t.name
+	%br
+	Due Date:
+	= t.due_date
+	%br
+	Description:
+	= t.description
+	%br
+	Completed?:
+	-if t.complete
+		This Task Has Been Completed
+	-else 
+		This Task Has Not Been Completed
+	%br
+	%br
+	Assigned to:
+	-if t.person
+		= t.person.name
+	-else
+		No Person Has Been Assigned To This Task
+	%br
+
