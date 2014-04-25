@@ -1,13 +1,26 @@
+<<<<<<< HEAD
 / %h1= @person.name
 
 / -if @person.available
 / 	This Person is Available
 / -else 
 / 	This Person is Not Available
+=======
+%h1= @person.name
+= image_tag @person.person_photo.url
+-if @person.available
+	This Person is Available
+-else 
+	This Person is Not Available
+%br
+= link_to "change availiblity status",
+	change_availablity_person_path, method: 'patch'
+>>>>>>> ca9534acf0d27d88b1feb17639bd67a1b39cb863
 
 / = button_to "Delete", "/people/#{@person.id}", {:action => "delete", :method => :delete}
 / %br
 
+<<<<<<< HEAD
 / =button_to "Edit Item", "/people/#{@person.id}/edit", {:method => :get} 
 %html{lang: "en"}
   %head
@@ -56,3 +69,47 @@
 / 	This Person is Not Available
 
  
+=======
+=button_to "Edit Item", "/people/#{@person.id}/edit", {:method => :get} 
+
+- @tasks.each do |t|
+	-if t.complete 
+		
+		%button.btn.btn-default
+			Name:
+			= t.name
+			%br
+			Due Date:
+			= t.due_date
+			%br
+			Description:
+			= t.description
+			%br
+			Completed?:
+			-if t.complete
+				This Task Has Been Completed
+			-else 
+				This Task Has Not Been Completed
+			%br
+			=link_to "Edit this task", "/tasks/#{t.id}/edit"
+			%br
+	-else 
+		%button.btn.btn-danger
+			Name:
+			= t.name
+			%br
+			Due Date:
+			= t.due_date
+			%br
+			Description:
+			= t.description
+			%br
+			Completed?:
+			-if t.complete
+				This Task Has Been Completed
+			-else 
+				This Task Has Not Been Completed
+			%br
+			=link_to "Edit this task", "/tasks/#{t.id}/edit"	
+			%br
+>>>>>>> ca9534acf0d27d88b1feb17639bd67a1b39cb863

@@ -2,7 +2,8 @@
 
 - @people.each do |p|
 	Name:
-	= p.name
+	=link_to "#{p.name}" , "people/#{p.id}"
+
 	%br
 	-if p.available
 		This Person is Available
