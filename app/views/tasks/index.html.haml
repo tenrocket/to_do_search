@@ -16,11 +16,33 @@
 	-else 
 		This Task Has Not Been Completed
 	%br
-	%br
 	Assigned to:
 	-if t.person
 		= t.person.name
 	-else
 		No Person Has Been Assigned To This Task
 	%br
+	%br
+
+
+= form_tag search_tasks_path, method: "get" do
+	= label_tag "search tasks"
+	= text_field_tag "search[search]"
+	= label_tag "person assigned to task"
+	=	select_tag 'search[person]', options_for_select(Person.pluck(:name)),include_blank: true
+	=	label_tag "check only completed tasks"
+	=	select_tag "search[task_completed]", options_for_select([['complete', true],['incomplete', false]]), include_blank: true
+	= label_tag "look for tasks that are due after:"
+	= date_field_tag "search[start_date]"	
+	= label_tag "look for tasks that are due before:"
+	= date_field_tag "search[end_date]"
+	= submit_tag "search"
+
+
+
+
+
+
+
+
 
