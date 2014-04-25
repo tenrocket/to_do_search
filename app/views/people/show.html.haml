@@ -15,6 +15,7 @@
 
 - @tasks.each do |t|
 	-if t.complete 
+		
 		%button.btn.btn-default
 			Name:
 			= t.name
@@ -30,6 +31,8 @@
 				This Task Has Been Completed
 			-else 
 				This Task Has Not Been Completed
+			%br
+			=link_to "Edit this task", "/tasks/#{t.id}/edit"
 			%br
 	-else 
 		%button.btn.btn-danger
@@ -47,4 +50,6 @@
 				This Task Has Been Completed
 			-else 
 				This Task Has Not Been Completed
+			%br
+			=link_to "Edit this task", "/tasks/#{t.id}/edit"	
 			%br
