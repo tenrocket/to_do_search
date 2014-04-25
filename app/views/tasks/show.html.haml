@@ -1,5 +1,5 @@
 %h1= @task.name
-
+= image_tag @task.task_photo.url
 -if @task.complete
 	This Task Has Been Completed.
 -else 

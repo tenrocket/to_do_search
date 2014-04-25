@@ -39,6 +39,13 @@ class TasksController < ApplicationController
 		end
 	end
 
+	def search
+		@tasks = Task.search(params[:search])
+		render :index 
+	end
+
+
+
 	private
 
 	def task_params
