@@ -1,11 +1,58 @@
-%h1= @person.name
+/ %h1= @person.name
 
--if @person.available
-	This Person is Available
--else 
-	This Person is Not Available
+/ -if @person.available
+/ 	This Person is Available
+/ -else 
+/ 	This Person is Not Available
 
-= button_to "Delete", "/people/#{@person.id}", {:action => "delete", :method => :delete}
-%br
+/ = button_to "Delete", "/people/#{@person.id}", {:action => "delete", :method => :delete}
+/ %br
 
-=button_to "Edit Item", "/people/#{@person.id}/edit", {:method => :get} 
+/ =button_to "Edit Item", "/people/#{@person.id}/edit", {:method => :get} 
+%html{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}/
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    %meta{content: "", name: "description"}/
+    %meta{content: "", name: "author"}/
+    %link{href: "http://www.blacktie.co/docs-assets/ico/favicon.png", rel: "shortcut icon"}/
+    %title STANLEY - Free Bootstrap Theme
+    / Bootstrap core CSS
+    %link{href: "http://www.blacktie.co/demo/stanley/assets/css/bootstrap.css", rel: "stylesheet"}/
+    / Custom styles for this template
+    %link{href: "http://www.blacktie.co/demo/stanley/assets/css/main.css", rel: "stylesheet"}/
+    %script{src: "https://code.jquery.com/jquery-1.10.2.min.js"}
+    %script{src: "assets/js/hover.zoom.js"}
+    %script{src: "assets/js/hover.zoom.conf.js"}
+#ww
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.centered
+        %img{alt: @person.name, src: "assets/img/user.png"}
+          %h1 #{@person.name}
+          %p Hello everybody. I'm #{@person.name}, task-doer extraordinaire.  Check out all the amazing tasks I've completed since joining &Done!
+          = button_to "Delete Profile", "/people/#{@person.id}", {:action => "delete", :method => :delete}
+          =button_to "Edit Profile", "/people/#{@person.id}/edit", {:method => :get}
+          
+.container.pt
+  .row.mt.centered
+    .col-lg-4
+      %a.zoom.green{href: "http://www.blacktie.co/demo/stanley/work01.html"}
+        %img.img-responsive{alt: "", src: "assets/img/portfolio/port01.jpg"}/
+      %p APE
+    .col-lg-4
+      %a.zoom.green{href: "http://www.blacktie.co/demo/stanley/work01.html"}
+        %img.img-responsive{alt: "", src: "assets/img/portfolio/port02.jpg"}/
+      %p RAIDERS
+    .col-lg-4
+      %a.zoom.green{href: "http://www.blacktie.co/demo/stanley/work01.html"}
+        %img.img-responsive{alt: "", src: "assets/img/portfolio/port03.jpg"}/
+      %p VIKINGS
+
+/ -if @person.available
+/ 	This Person is Available
+/ -else 
+/ 	This Person is Not Available
+
+ 

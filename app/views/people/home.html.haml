@@ -1,0 +1,45 @@
+%html
+  %head
+    %meta{charset: "utf-8"}/
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    %title Siimple - Free Bootstrap 3 Landing Page
+    / Bootstrap
+    %link{href: "http://bootstraptaste.com/theme/siimple/assets/css/style.css", rel: "stylesheet"}/
+
+  %body
+    / Fixed navbar
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{href: "http://localhost:3000"} & Done
+        .navbar-collapse.collapse
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %a{href: "#"} Start A Task
+            %li
+              %a{href: "http://localhost:3000/people"} Your Family
+        / /.nav-collapse
+    #header
+      .container
+        .row
+          .col-lg-6
+            %h1 ____& Done
+            %h2.subtitle Finish Your Tasks Quicker.  Get Back To What's Important.
+            %form.form-inline.signup{role: "form"}
+              .form-group
+                %input#exampleInputEmail1.form-control{placeholder: "Enter your email address", type: "email"}/
+              %button.btn.btn-theme{type: "submit"} Get it now
+
+    #footer
+      .container
+        .row
+          .col-lg-6.col-lg-offset-3
+            %p.copyright Dan Cornnell & Chris Turner, 2014
+
+    %script{src: "https://code.jquery.com/jquery-1.10.2.min.js"}
+    %script{src: "assets/js/bootstrap.min.js"}
