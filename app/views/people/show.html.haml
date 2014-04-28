@@ -27,10 +27,9 @@
           
 .container.pt
 	.row.mt.centered
-		.col-lg-4
-			- @tasks.each do |t|
-				-if t.complete 
-					
+		- @tasks.each do |t|
+			-if t.complete 
+				.button-show
 					%button.btn.btn-default
 						Name:
 						= t.name
@@ -49,7 +48,8 @@
 						%br
 						=link_to "Edit this task", "/tasks/#{t.id}/edit"
 						%br
-				-else 
+			-else 
+				.button-show
 					%button.btn.btn-danger
 						Name:
 						= t.name
