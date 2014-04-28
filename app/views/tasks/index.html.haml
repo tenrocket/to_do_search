@@ -1,30 +1,62 @@
-%h1 List of Tasks
+/ %h1 List of Tasks
 
-- @tasks.each do |t|
-	Name:
-	= t.name
-	%br
-	Due Date:
-	= t.due_date
-	%br
-	Description:
-	= t.description
-	%br
-	Completed?:
-	-if t.complete
-		This Task Has Been Completed
-	-else 
-		This Task Has Not Been Completed
-	%br
-	Assigned to:
-	-if t.person
-		= t.person.name
-	-else
-		No Person Has Been Assigned To This Task
-	%br
-	%br
+/ - @tasks.each do |t|
+/ 	Name:
+/ 	= t.name
+/ 	%br
+/ 	Due Date:
+/ 	= t.due_date
+/ 	%br
+/ 	Description:
+/ 	= t.description
+/ 	%br
+/ 	Completed?:
+/ 	-if t.complete
+/ 		This Task Has Been Completed
+/ 	-else 
+/ 		This Task Has Not Been Completed
+/ 	%br
+/ 	Assigned to:
+/ 	-if t.person
+/ 		= t.person.name
+/ 	-else
+/ 		No Person Has Been Assigned To This Task
+/ 	%br
+/ 	%br
 
+%html
+	%head
+		%meta{:charset => "utf-8"}
+			%meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}/
+			%meta{:content => "Bootstrap templates: Free, responsive and ready to kickstart your Bootstrap development - for Bootstrap 3", :name => "description"}/
+			%meta{:content => "Bootstrap,templates,Twitter Bootstrap templates,free,Bootstrap 3,example,snippet", :name => "keywords"}/
+			%title Bootstrap Templates from Bootply - The Bootstrap Playground
+			%link{:href => "https://plus.google.com/116497776225182131214", :rel => "author"}/
+			%link{:href => "https://plus.google.com/+Bootply", :rel => "publisher"}/
+			%meta{:content => "https://pbs.twimg.com/profile_images/3663020003/d09fae59ab68605a7973043e0267b905_bigger.jpeg", :name => "og:image"}/
+			%link{:href => "http://getbootstrap.com/dist/css/bootstrap.css", :rel => "stylesheet"}
+			%link{:href => "http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css", :rel => "stylesheet", :type => "text/css"}
+			/[if lt IE 9]
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			%link{:href => "http://www.bootply.com/bootstrap/img/favicon.ico", :rel => "shortcut icon"}
+			%link{:href => "http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css", :rel => "stylesheet", :type => "text/css"}
+			%link{:href => "http://www.bootply.com/css/blog.css", :rel => "stylesheet", :type => "text/css"}
+			%link{href: "http://bootstraptaste.com/theme/siimple/assets/css/style.css", rel: "stylesheet"}/
+:javascript
+	var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/32644/azcarbon_2_1_0_VERT"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);  
 
+%body
+	.navbar.navbar-inverse.navbar-fixed-top 
+		.container
+			.navbar-header
+				%button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+					%span.icon-bar
+					%span.icon-bar
+					%span.icon-bar
+				%a.navbar-brand{href: "http://localhost:3000"} & Done
+			.navbar-collapse.collapse
+
+.search{:style => "\n    padding-bottom: 55px;\n    margin-left: 0px;\n"}
 = form_tag search_tasks_path, method: "get" do
 	= label_tag "search tasks"
 	= text_field_tag "search[search]"
@@ -38,8 +70,70 @@
 	= date_field_tag "search[end_date]"
 	= submit_tag "search"
 
+	
+
+	#main.column.col-sm-9
+		.padding
+			.full.col-sm-9
+				.col-sm-12
+					#templates.page-header.text-muted
+						Task List |
+						%small Get back to what's important.
+						= button_to "Add New Task", new_task_path, method: "get"
 
 
+				.row
+					.col-sm-8
+						%h3
+							%span.badge.badge-default 
+							- @tasks.each do |t|
+								Task:
+								=link_to "#{t.name}" , "tasks/#{t.id}"
+								%br
+								Due Date:
+								= t.due_date
+								%br
+								Description:
+								= t.description
+								%br
+								Completed?:
+								-if t.complete
+									Yes
+								-else 
+									No
+								%br
+								Assigned to:
+								-if t.person
+									= t.person.name
+								-else
+									Not Specified
+								%hr
+								%br
+
+
+#footer
+	.container
+		.row
+			.col-lg-6.col-lg-offset-3
+				%p.copyright Dan Cornnell & Chris Turner, 2014
+
+/ %body
+/ 	.wrapper
+/ 		.box
+/ 			.row
+/ 			#sidebar.column.col-sm-3
+/ 				%a.logo{:href => "http://www.bootply.com"} &Done
+/ 				%ul.nav
+/ 					%li.active
+/ 						%a{:href => "http://www.bootply.com/templates#templates"} Tasks
+/ 					%li
+/ 						%a{:href => "http://www.bootply.com/templates#howto"} People
+
+/ 					%ul#sidebar-footer.nav.hidden-xs
+/ 						%li
+/ 							%a{:href => "http://www.bootply.com", :target => "_new"}
+/ 							%h3> &Done
+/ 							Get back to what's important.
 
 
 

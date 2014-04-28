@@ -1,4 +1,40 @@
-= form_for @new_task do |f|
-	= render "form", f: f
-	%br
-	= f.file_field :task_photo
+%html
+	%head
+		%meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}
+		%meta{:charset => "utf-8"}
+			%title Bootply.com - Bootstrap Bootstrap Login Form
+			%title http://bootstrapzero.com/bootstrap-template/sign-in
+			%meta{:content => "Bootply", :name => "generator"}/
+			%meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}
+				%link{:href => "http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css", :rel => "stylesheet"}
+				/[if lt IE 9]
+				<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+				%link{:href => "http://www.bootply.com/bootstrap/img/favicon.ico", :rel => "shortcut icon"}
+				%link{:href => "http://www.bootply.com/bootstrap/img/apple-touch-icon.png", :rel => "apple-touch-icon"}
+				%link{:href => "http://www.bootply.com/bootstrap/img/apple-touch-icon-72x72.png", :rel => "apple-touch-icon", :sizes => "72x72"}
+				%link{:href => "http://www.bootply.com/bootstrap/img/apple-touch-icon-114x114.png", :rel => "apple-touch-icon", :sizes => "114x114"}
+				%link{href: "http://bootstraptaste.com/theme/siimple/assets/css/style.css", rel: "stylesheet"}/
+
+%body
+	.navbar.navbar-inverse.navbar-fixed-top 
+		.container
+			.navbar-header
+				%button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+					%span.icon-bar
+					%span.icon-bar
+					%span.icon-bar
+				%a.navbar-brand{href: "http://localhost:3000"} & Done
+			.navbar-collapse.collapse
+
+		#loginModal.modal.show{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1", :style => "\n    margin-top: 55px;\n    margin-left: 0px;\n"}
+			.modal-dialog
+				.modal-content
+					.modal-header
+						%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+						%h1.text-center Add A Task
+					.modal-body
+						= form_for @new_task do |f|
+							= f.file_field :task_photo
+							%br
+							= render "form", f: f
+							%br
