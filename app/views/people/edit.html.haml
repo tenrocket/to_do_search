@@ -33,6 +33,7 @@
 						%h1.text-center Edit Family Member
 					.modal-body
 						= form_for @person, url: "/people/#{@person.id}" do |f|
+							= f.file_field :person_photo
 							= render "form", f: f
 							%br
 

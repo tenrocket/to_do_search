@@ -32,4 +32,5 @@
 						%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
 						%h1.text-center Edit Task
 						= form_for @task, url: "/tasks/#{@task.id}" do |f|
+							= f.file_field :task_photo
 							= render "form", f: f
