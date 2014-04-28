@@ -1,11 +1,34 @@
-%h1= @task.name
-= image_tag @task.task_photo.url
--if @task.complete
-	This Task Has Been Completed.
--else 
-	This Task Has Not Been Completed.
+%html{lang: "en"}
+	%head
+		%meta{charset: "utf-8"}/
+		%meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+		%meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+		%meta{content: "", name: "description"}/
+		%meta{content: "", name: "author"}/
+		%link{href: "http://www.blacktie.co/docs-assets/ico/favicon.png", rel: "shortcut icon"}/
+		%title STANLEY - Free Bootstrap Theme
+		/ Bootstrap core CSS
+		%link{href: "http://www.blacktie.co/demo/stanley/assets/css/bootstrap.css", rel: "stylesheet"}/
+		/ Custom styles for this template
+		%link{href: "http://www.blacktie.co/demo/stanley/assets/css/main.css", rel: "stylesheet"}/
+		%script{src: "https://code.jquery.com/jquery-1.10.2.min.js"}
+		%script{src: "assets/js/hover.zoom.js"}
+		%script{src: "assets/js/hover.zoom.conf.js"}
+#ww
+	.container
+		.row
+			.col-lg-8.col-lg-offset-2.centered
+				%img
+				= image_tag @task.task_photo.url
+				%h1 #{@task.name}
+				%p #{@task.description}
+				%br
+				-if @task.complete
+					This Task Has Been Completed.
+				-else 
+					This Task Has Not Been Completed.
+				%br
+				= button_to "Delete", "/tasks/#{@task.id}", {:action => "delete", :method => :delete}
+				%br
+				=button_to "Edit Task", "/tasks/#{@task.id}/edit", {:method => :get} 
 
-= button_to "Delete", "/tasks/#{@task.id}", {:action => "delete", :method => :delete}
-%br
-
-=button_to "Edit Task", "/tasks/#{@task.id}/edit", {:method => :get} 

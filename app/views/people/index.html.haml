@@ -1,14 +1,64 @@
-%h1 List of People
+%html
+	%head
+		%meta{:charset => "utf-8"}
+			%meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}/
+			%meta{:content => "Bootstrap templates: Free, responsive and ready to kickstart your Bootstrap development - for Bootstrap 3", :name => "description"}/
+			%meta{:content => "Bootstrap,templates,Twitter Bootstrap templates,free,Bootstrap 3,example,snippet", :name => "keywords"}/
+			%title Bootstrap Templates from Bootply - The Bootstrap Playground
+			%link{:href => "https://plus.google.com/116497776225182131214", :rel => "author"}/
+			%link{:href => "https://plus.google.com/+Bootply", :rel => "publisher"}/
+			%meta{:content => "https://pbs.twimg.com/profile_images/3663020003/d09fae59ab68605a7973043e0267b905_bigger.jpeg", :name => "og:image"}/
+			%link{:href => "http://getbootstrap.com/dist/css/bootstrap.css", :rel => "stylesheet"}
+			%link{:href => "http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css", :rel => "stylesheet", :type => "text/css"}
+			/[if lt IE 9]
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			%link{:href => "http://www.bootply.com/bootstrap/img/favicon.ico", :rel => "shortcut icon"}
+			%link{:href => "http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css", :rel => "stylesheet", :type => "text/css"}
+			%link{:href => "http://www.bootply.com/css/blog.css", :rel => "stylesheet", :type => "text/css"}
+			%link{href: "http://bootstraptaste.com/theme/siimple/assets/css/style.css", rel: "stylesheet"}/
 
-- @people.each do |p|
-	Name:
-	=link_to "#{p.name}" , "people/#{p.id}"
+:javascript
+	var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/32644/azcarbon_2_1_0_VERT"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);  
 
-	%br
-	-if p.available
-		This Person is Available
-	-else 
-		This Person is Not Available
+%body
+	.navbar.navbar-inverse.navbar-fixed-top
+		.container
+			.navbar-header
+				%button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+					%span.icon-bar
+					%span.icon-bar
+					%span.icon-bar
+				%a.navbar-brand{href: "http://localhost:3000"} & Done
+			.navbar-collapse.collapse
 
-	%br
-	%br
+	#main.column.col-sm-9
+		.padding
+			.full.col-sm-9
+				.col-sm-12
+					#templates.page-header.text-muted
+						Your Family |
+						%small - Keep track of who's doing what
+						= button_to "Add Someone", new_person_path, method: "get"
+
+				.row
+					.col-sm-8
+						%h3
+							%span.badge.badge-default 
+							- @people.each do |p|
+								Name:
+								=link_to "#{p.name}" , "people/#{p.id}"
+
+								%br
+								-if p.available
+									This Person is Available
+								-else 
+									This Person is Not Available
+
+								%hr
+								%br
+
+#footer
+	.container
+		.row
+			.col-lg-6.col-lg-offset-3
+				%p.copyright Dan Cornnell & Chris Turner, 2014
