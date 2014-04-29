@@ -1,0 +1,17 @@
+Name:
+= t.name
+%br
+Due Date:
+= t.due_date
+%br
+Description:
+= t.description
+%br
+Completed?:
+-if t.complete
+	This Task Has Been Completed
+-else 
+	This Task Has Not Been Completed
+%br
+=link_to "Edit this task", "/tasks/#{t.id}/edit"	
+%br
