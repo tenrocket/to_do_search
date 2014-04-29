@@ -44,6 +44,17 @@ class TasksController < ApplicationController
 		render :index 
 	end
 
+		def change_complete_status
+		@task = Task.find(params[:id])
+		if @task.complete
+			val = false
+		else
+			val = true
+		end
+		@task.update_attributes(:complete => val)
+		redirect_to :back
+	end
+
 
 
 	private

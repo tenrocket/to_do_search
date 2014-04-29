@@ -15,6 +15,9 @@ Rails.application.routes.draw do
       get :search
       get :results
     end
+    member do
+      patch :change_complete_status
+    end
     
   end
 

@@ -9,9 +9,11 @@ Description:
 %br
 Completed?:
 -if t.complete
-	This Task Has Been Completed
+	= link_to "this task is complete",
+			change_complete_status_task_path, method: 'patch'
 -else 
-	This Task Has Not Been Completed
+	= link_to "this task in incomplete",
+			change_complete_status_task_path, method: 'patch'
 %br
 =link_to "Edit this task", "/tasks/#{t.id}/edit"	
 %br

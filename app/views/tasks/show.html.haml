@@ -31,4 +31,7 @@
 				= button_to "Delete", "/tasks/#{@task.id}", {:action => "delete", :method => :delete}
 				%br
 				=button_to "Edit Task", "/tasks/#{@task.id}/edit", {:method => :get} 
+				%br
+				=button_to "Completed?", change_complete_status_task_path, {:method => :patch}
+
 
